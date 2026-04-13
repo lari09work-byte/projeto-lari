@@ -1,4 +1,4 @@
-name: CI - Teste básico
+name: CI/CD - Projeto Lari 
 
 on:
   push:
@@ -14,5 +14,13 @@ jobs:
       - name: Baixar código
         uses: actions/checkout@v3
 
-      - name: Verificar arquivos
+      - name: Verificar projeto
         run: echo "CI funcionando com sucesso "
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Deploy do site
+        run: echo "Deploy realizado com sucesso "
