@@ -1,0 +1,26 @@
+body {
+  font-family: Arial;
+  background-color: #fff0f5;
+  text-align: center;
+}
+
+header {
+  background-color: #d8a7b1;
+  padding: 20px;
+  color: white;
+}
+
+h2 {
+  color: #a64d79;
+}
+
+a {
+  background: #a64d79;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+
+adicionando estilo ao site
