@@ -22,5 +22,8 @@ a {
   border-radius: 10px;
 }
 
-
-adicionando estilo ao site
+footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
