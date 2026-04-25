@@ -1,23 +1,23 @@
-name: CI/CD com alerta 
+name: CI/CD com testes 
 
 on:
-  push:
+  pull_request:
     branches: [ "main" ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
-      - run: echo "Build OK"
 
-  notify:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Enviar alerta para Discord
-        run: |
-          curl -H "Content-Type: application/json" \
-          -X POST \
-          -d '{"content": " Novo commit no projeto da Lari "}' \
-          ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Instalar Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Rodar testes
+        run: npm test
