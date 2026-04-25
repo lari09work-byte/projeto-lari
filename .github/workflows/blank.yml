@@ -1,11 +1,23 @@
+name: CI/CD com alerta 
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "Build OK"
+
   notify:
     runs-on: ubuntu-latest
-    needs: [build, deploy]
-
+    needs: build
     steps:
       - name: Enviar alerta para Discord
         run: |
           curl -H "Content-Type: application/json" \
           -X POST \
-          -d '{"content": "Deploy feito com sucesso no projeto da Lari "}' \
+          -d '{"content": " Novo commit no projeto da Lari "}' \
           ${{ secrets.DISCORD_WEBHOOK }}
