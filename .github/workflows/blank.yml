@@ -7,5 +7,5 @@
         run: |
           curl -H "Content-Type: application/json" \
           -X POST \
-          -d '{"content": "🚀 Deploy feito com sucesso no projeto da Lari 💖"}' \
+          -d '{"content": "Deploy feito com sucesso no projeto da Lari "}' \
           ${{ secrets.DISCORD_WEBHOOK }}
